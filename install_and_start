@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "正在安装依赖..."
+npm i
+echo "安装PM2进行进程守护..."
+sudo npm i -g pm2
+echo "编译构建..."
+npm run build
+echo "启动服务..."
+pm2 start dist/index.js --name "hailuo-free-api"
+echo "所有步骤已完成!"
